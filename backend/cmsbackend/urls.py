@@ -36,9 +36,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/ai-blog/', include('ai_blog_generator.urls')),
-    path('api/auth-token/', CustomObtainAuthToken.as_view(), name='api_token_auth'),  # Use class-based token view
-    path('api/auth/token/regenerate/', RegenerateAuthToken.as_view(), name='regenerate_token'),
+    path('api/auth/', include('authentication.urls')),  # New authentication URLs
+    path('api/auth-token/', CustomObtainAuthToken.as_view(), name='api_token_auth'),  # Required for CMS admin login
+    path('api/auth/token/regenerate/', RegenerateAuthToken.as_view(), name='regenerate_token'),  # Required for CMS admin login
     path('api-auth/', include('rest_framework.urls')),
+    path('api/research/', include('research.urls')),  # Add research URLs
+    path('api/blog/', include('blog.urls')),
+    path('api/chat/', include('chat.urls')),
 ]
 
 # Serve media files in development

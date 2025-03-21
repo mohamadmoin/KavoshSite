@@ -421,3 +421,22 @@ The system is also set up for AI-generated images using OpenAI if you prefer tha
 4. **Attribution**:
    - Adds proper attribution to the end of the blog post
    - Links to the photographer and Pexels as required by guidelines 
+
+## Analytics & User Tracking
+
+The project includes comprehensive analytics tracking using Google Tag Manager (GTM) and Google Analytics 4 (GA4):
+
+### Features
+
+- **Page View Tracking**: Automatically tracks page views across the site
+- **Event Tracking**: Tracks user interactions like button clicks and form submissions
+- **Custom Events**: Supports custom event tracking for specific business needs
+- **Blog Post Analytics**: Tracks blog post views and engagement
+
+### Implementation
+
+- Google Tag Manager is used as the central hub for all tracking scripts
+- Google Analytics 4 is configured through GTM
+- Custom hooks make it easy to track events from any component
+
+For detailed documentation, see [Analytics Implementation Guide](frontend2/docs/ANALYTICS.md). 

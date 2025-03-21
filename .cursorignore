@@ -1,0 +1,79 @@
+#venv/# macOS system files
+.DS_Store
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Virtual environment
+bin/
+
+share/
+
+
+# IDE settings
+.vscode/
+
+# Media and temporary files
+media/
+*.docx
+*.pdf
+venv/
+.venv/
+myenv/
+
+# Compiled Python files
+accounts/__pycache__/
+research_platform/__pycache__/
+
+# Migrations
+accounts/migrations/__pycache__/
+
+# Temporary and backup files
+temp_thesis.docx
+temp_thesis_updated.docx
+thesis.docx
+thesis_updated.docx
+
+# Untracked files and directories
+ Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+

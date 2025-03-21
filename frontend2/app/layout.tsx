@@ -5,6 +5,8 @@ import { DefaultSeo } from "next-seo";
 import "./globals.css";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
+import { GoogleTagManagerHead, GoogleTagManagerBody } from "../components/GoogleTagManager";
+import PageViewTracker from "../components/PageViewTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,10 +48,11 @@ export const metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -57,16 +60,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // For development, we'll use the hardcoded GTM ID
+  // In production, we would fetch this from the API
+  const gtmId = "GTM-PWP4Z4FG";
+  
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <GoogleTagManagerHead gtmId={gtmId} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <GoogleTagManagerBody gtmId={gtmId} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <PageViewTracker />
           <div className="relative flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>

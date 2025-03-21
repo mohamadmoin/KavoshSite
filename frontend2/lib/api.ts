@@ -236,4 +236,25 @@ function getFallbackPostBySlug(slug: string): BlogPostDetail | null {
     internal_links_count: 0,
     external_links_count: 0
   };
+}
+
+// Add this function to fetch SEO settings
+export async function getSEOSettings() {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api'}/seo-settings/`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch SEO settings');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching SEO settings:', error);
+    // Return default values if API call fails
+    return {
+      google_analytics_id: 'G-BEBHH24NZP',
+      google_tag_manager_id: 'GTM-PWP4Z4FG',
+      default_meta_title: 'KavoshSite Blog',
+      default_meta_description: 'Discover insightful tech articles generated with AI',
+      enable_structured_data: true
+    };
+  }
 } 
